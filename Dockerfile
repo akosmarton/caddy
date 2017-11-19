@@ -3,7 +3,7 @@ FROM golang:alpine AS builder
 RUN apk update && apk add git
 RUN go get github.com/mholt/caddy/caddy
 
-FROM scratch
+FROM alpine
 
 COPY --from=builder /go/bin/caddy /
 
