@@ -5,6 +5,8 @@ RUN go get github.com/mholt/caddy/caddy
 
 FROM alpine
 
+RUN apk update && apk add ca-certificates
+
 COPY --from=builder /go/bin/caddy /
 
 ENV CADDYPATH=/data
